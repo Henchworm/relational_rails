@@ -1,2 +1,3 @@
 class Mountain < ApplicationRecord
-end 
+  belongs_to :mtn_range
+end

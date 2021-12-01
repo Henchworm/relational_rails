@@ -2,6 +2,6 @@ require 'rails_helper'
 
 describe Mountain do
   describe 'relationships' do
-    xit { should belong_to :range }
+    it { should belong_to :mtn_range }
   end
 end

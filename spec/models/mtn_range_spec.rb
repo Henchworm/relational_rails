@@ -3,7 +3,7 @@ require 'rails_helper'
 describe MtnRange do
 
   describe 'relationships' do
-    xit { should have_many(:mountains) }
+    it { should have_many(:mountains) }
   end
 
   describe 'validations' do
