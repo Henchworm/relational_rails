@@ -26,6 +26,24 @@ ActiveRecord::Schema.define(version: 2021_12_01_220037) do
     t.index ["park_id"], name: "index_hikes_on_park_id"
   end
 
+  create_table "mountains", force: :cascade do |t|
+    t.string "name"
+    t.integer "elevation"
+    t.boolean "safe_winter_route"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "mtn_range_id"
+    t.index ["mtn_range_id"], name: "index_mountains_on_mtn_range_id"
+  end
+
+  create_table "mtn_ranges", force: :cascade do |t|
+    t.string "name"
+    t.boolean "natl_park_land"
+    t.integer "drivetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parks", force: :cascade do |t|
     t.string "name"
     t.integer "entrance_fee"
@@ -35,4 +53,5 @@ ActiveRecord::Schema.define(version: 2021_12_01_220037) do
   end
 
   add_foreign_key "hikes", "parks"
+  add_foreign_key "mountains", "mtn_ranges"
 end
