@@ -5,7 +5,6 @@ class CreateHike < ActiveRecord::Migration[5.2]
       t.integer :mileage
       t.integer :elevation_gain
       t.boolean :water_on_route
-      t.references :park, foreign_key: true
 
       t.timestamps
     end
