@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_001814) do
+ActiveRecord::Schema.define(version: 2021_12_01_070855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,12 @@ ActiveRecord::Schema.define(version: 2021_12_01_001814) do
     t.index ["park_id"], name: "index_hikes_on_park_id"
   end
 
-  create_table "mountains", force: :cascade do |t|
+  create_table "mtn_ranges", force: :cascade do |t|
     t.string "name"
-    t.integer "elevation"
-    t.boolean "safe_winter_route"
-    t.string "routes"
-    t.bigint "range_id"
+    t.boolean "natl_park_land"
+    t.integer "drivetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["range_id"], name: "index_mountains_on_range_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -45,15 +42,5 @@ ActiveRecord::Schema.define(version: 2021_12_01_001814) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ranges", force: :cascade do |t|
-    t.string "name"
-    t.string "accessibility"
-    t.boolean "natl_park_land"
-    t.integer "drivetime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "hikes", "parks"
-  add_foreign_key "mountains", "ranges"
 end
