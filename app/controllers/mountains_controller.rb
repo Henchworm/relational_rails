@@ -3,7 +3,7 @@ class MountainsController < ApplicationController
     @mountains = Mountain.all
   end
 
-  # def show
-  #   @mtn_range = MtnRange.find(params[:id])
-  # end
+  def show
+    @mountain = Mountain.find(params[:id])
+  end
 end
