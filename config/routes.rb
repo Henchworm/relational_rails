@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get '/parks', to: 'parks#index'
-
+  get '/parks/:id', to: 'parks#show'
   get '/mtn_ranges', to: 'mtn_ranges#index'
 end

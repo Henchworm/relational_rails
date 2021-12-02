@@ -9,4 +9,4 @@ RSpec.describe "parks index page", type: :feature do
 
     expect(page).to have_content(park_1.name)
   end
-end 
+end
