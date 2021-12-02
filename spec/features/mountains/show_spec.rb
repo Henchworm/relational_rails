@@ -20,6 +20,5 @@ RSpec.describe "the mountain show page", type: :feature do
 
   it "displays whether or not there is a safe winter route" do
     expect(page).to have_content(@mountain_1.safe_winter_route)
-    save_and_open_page
   end
 end
