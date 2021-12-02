@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/parks/:id', to: 'parks#show'
 
   get '/hikes', to: 'hikes#index'
-  
+  get '/hikes/:id', to: 'hikes#show'
+
   get '/mtn_ranges', to: 'mtn_ranges#index'
 end
