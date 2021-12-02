@@ -1,0 +1,6 @@
+<h1>All Mountains</h1>
+<% @mountains.each do |mountain| %>
+  <p><%=mountain.name%></p>
+  <p>Elevation: <%=mountain.elevation%></p>
+  <p>Safe Winter Route? <%=mountain.safe_winter_route%></p>
+<% end %>
