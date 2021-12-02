@@ -10,7 +10,6 @@ RSpec.describe 'the parks show page' do
   end
 
   it 'displays the park name' do
-    binding.pry
     expect(page).to have_content(@park_1.name)
   end
 

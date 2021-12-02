@@ -11,7 +11,6 @@ RSpec.describe 'the mtn_ranges show page' do
 
   it 'displays the mtn_range name' do
     expect(page).to have_content(@mtn_range_1.name)
-    save_and_open_page
   end
 
   it 'displays the drivetime' do
