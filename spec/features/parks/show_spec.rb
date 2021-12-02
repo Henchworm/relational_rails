@@ -4,7 +4,7 @@ RSpec.describe 'the parks show page' do
   before(:each) do
     @park_1 = Park.create!(name: "Rocky Mountain National Park",
                           entrance_fee: 50,
-                          ocean_access: true)
+                          ocean_access: false)
 
     visit "/parks/#{@park_1.id}"
   end
