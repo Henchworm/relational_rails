@@ -5,11 +5,11 @@ RSpec.describe 'the parks show page' do
     @park_1 = Park.create!(name: "Rocky Mountain National Park",
                           entrance_fee: 50,
                           ocean_access: true)
+
+    visit "/parks/#{@park_1.id}"
   end
 
   it 'displays the park name' do
-    visit '/parks/:id'
-
     expect(page).to have_content(@park_1.name)
   end
 
