@@ -14,7 +14,7 @@ describe Park do
   end
 
   describe 'class methods' do
-    describe '::most_recent_first' do
+    describe ':most_recent_first' do
       it 'shows the records ordered by most recently created first' do
 
         park_1 = Park.create!(name: "Rocky Mountain National Park",
@@ -23,7 +23,7 @@ describe Park do
         park_2 = Park.create!(name: "Glacier National Park",
                               entrance_fee: 30,
                               ocean_access: false)
-        expect(Park.most_recent_first.first).to eq(park_2)
+        expect(Park.most_recent_first).to eq([park_2,park_1])
       end
     end
   end

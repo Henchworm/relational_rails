@@ -1,4 +1,5 @@
 <h1>All Mountain Ranges</h1>
 <% @mtn_ranges.each do |mtn_range| %>
-  <p><%=mtn_range.name%></p>
+  <h3><%=mtn_range.name%>
+    <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=mtn_range.created_at%>)</span></h3>
 <% end %>
