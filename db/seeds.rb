@@ -9,6 +9,10 @@ park_1 = Park.create!(name: "Rocky Mountain National Park",
                       entrance_fee: 50,
                       ocean_access: false)
 
+park_2 = Park.create!(name: "Glacier National Park",
+                      entrance_fee: 30,
+                      ocean_access: false)
+
 hike_1 = park_1.hikes.create!(name: "Sky Pond",
                       mileage: 12,
                       elevation_gain: 1600,
@@ -23,10 +27,14 @@ mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
                             natl_park_land: false,
                             drivetime: 16)
 
+mtn_range_2 = MtnRange.create!(name: "Rocky Mountains",
+                            natl_park_land: false,
+                            drivetime: 16)
+
 mountain_1 = mtn_range_1.mountains.create!(name: "Black Kaweah",
                                          elevation: 13681,
                                          safe_winter_route: false)
-                                         
+
 mountain_2 = mtn_range_1.mountains.create!(name: "Red Kaweah",
                                            elevation: 13720,
                                            safe_winter_route: false)
