@@ -9,4 +9,8 @@ class MtnRange < ApplicationRecord
     self.order("created_at DESC")
   end
 
+  def mountain_count
+    self.mountains.count
+  end
+
 end

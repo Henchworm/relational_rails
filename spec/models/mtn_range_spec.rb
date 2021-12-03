@@ -17,7 +17,7 @@ describe MtnRange do
 
   describe 'class methods' do
     describe ':most_recent_first' do
-      it 'shows the records ordered by most recently created first' do
+      it 'returns the records ordered by most recently created first' do
 
         mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
                                       natl_park_land: false,
@@ -27,6 +27,27 @@ describe MtnRange do
                                       drivetime: 16)
 
         expect(MtnRange.most_recent_first).to eq([mtn_range_2, mtn_range_1])
+      end
+    end
+  end
+
+  describe 'instance methods' do
+    describe 'mountain_count' do
+      it 'returns the count of mountains associated with the mtn range' do
+        mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
+                                      natl_park_land: false,
+                                      drivetime: 16)
+        mtn_range_2 = MtnRange.create!(name: "Sierra Nevada",
+                                      natl_park_land: false,
+                                      drivetime: 16)
+        mountain_1 = mtn_range_1.mountains.create!(name: "Black Kaweah",
+                                                    elevation: 13681,
+                                                    safe_winter_route: false)
+        mountain_2 = mtn_range_1.mountains.create!(name: "Red Kaweah",
+                                                      elevation: 13720,
+                                                      safe_winter_route: false)
+        expect(mtn_range_1.mountain_count).to eq(2)
+        expect(mtn_range_2.mountain_count).to eq(0)
       end
     end
   end

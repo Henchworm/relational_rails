@@ -20,4 +20,7 @@ RSpec.describe 'the mtn_ranges show page' do
   it 'displays whether it has natl park land' do
     expect(page).to have_content(@mtn_range_1.natl_park_land)
   end
+
+  # it 'displays count of mountains associated with ranges' do
+  # end
 end
