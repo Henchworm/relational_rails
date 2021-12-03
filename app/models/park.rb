@@ -7,4 +7,8 @@ class Park < ApplicationRecord
   def self.most_recent_first
     self.order("created_at DESC")
   end
+
+  def hike_count
+    self.hikes.count
+  end
 end
