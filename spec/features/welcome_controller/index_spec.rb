@@ -7,7 +7,7 @@ RSpec.describe 'welcome_index' do
 
     it 'displays welcome' do
       expect(page).to have_content("Welcome to the GREAT OUTDOORS")
-    end 
+    end
 
 
     it 'displays mountain ranges and link' do
@@ -20,7 +20,7 @@ RSpec.describe 'welcome_index' do
     end
 
     it "displays natl parks and link" do
-      expect(page).to have_link("Natl Parks")
+      expect(page).to have_link("Parks")
     end
 
     it "displays hikes and link" do
