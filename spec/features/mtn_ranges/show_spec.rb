@@ -30,7 +30,6 @@ RSpec.describe 'the mtn_ranges show page' do
   it 'displays count of mountains associated with ranges' do
     # expect(page).to have_content(@mtn_range_1.mountain_count)
     expect(page).to have_content("Mountain Count: 2")
-    save_and_open_page
   end
 
 end
