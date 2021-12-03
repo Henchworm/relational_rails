@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get '/mtn_ranges', to: 'mtn_ranges#index'
   get '/mtn_ranges/:id', to: 'mtn_ranges#show'
-  
+
   get '/mountains', to: 'mountains#index'
   get '/mountains/:id', to: 'mountains#show'
+
+  get '/parks/:park_id/hikes', to: 'park_hikes#index'
 end
