@@ -25,7 +25,6 @@ RSpec.describe "mtnrange index page", type: :feature do
                           drivetime: 16)
     visit "/mtn_ranges"
 
-    save_and_open_page
     expect(page).to have_content(mtn_range_1.created_at)
     expect(page).to have_content(mtn_range_2.created_at)
   end

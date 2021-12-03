@@ -61,18 +61,16 @@ end
   it "displays the mountain name" do
     expect(page).to have_content(@mountain_1.name)
     expect(page).to have_content(@mountain_2.name)
-
   end
 
   it "displays the mountain elevation" do
     expect(page).to have_content(@mountain_1.elevation)
     expect(page).to have_content(@mountain_2.elevation)
-
   end
 
   it "displays whether or not there is a safe winter route" do
     expect(page).to have_content(@mountain_1.safe_winter_route)
     expect(page).to have_content(@mountain_2.safe_winter_route)
-    save_and_open_page
+    # save_and_open_page
   end
 end
