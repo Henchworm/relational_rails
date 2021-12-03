@@ -1,5 +1,5 @@
 <h1>All Mountain Ranges</h1>
-<% @mtn_ranges.each do |mtn_range| %>
+<% @mtn_ranges.most_recent_first.each do |mtn_range| %>
   <h3><%=mtn_range.name%>
     <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=mtn_range.created_at%>)</span></h3>
 <% end %>
