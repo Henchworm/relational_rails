@@ -1,0 +1,11 @@
+<%= form_with url: '/mtn_ranges/', method: :post, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :drivetime %>
+  <%= form.text_field :drivetime %></p>
+  <%= form.label :natl_park_land %>
+  <%= form.text_field :natl_park_land %>
+  <p><%=form.submit "Create Mountain Range"%></p>
+ <% end %>
+
+

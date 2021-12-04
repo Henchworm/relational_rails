@@ -7,10 +7,12 @@
 
 <h1>All Mountains in <%= @mtn_range.name %> Range</h1>
 
+
 <% @mountains.each do |mountain| %>
   <h3><%=mountain.name%></h3>
   <p>Elevation: <%=mountain.elevation%></p>
   <p>Safe Winter Route? <%=mountain.safe_winter_route%></p>
 
 <% end %>
+
 

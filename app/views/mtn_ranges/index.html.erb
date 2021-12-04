@@ -5,6 +5,9 @@
   <li><a href="/parks">Parks</a></li>
 </ul>
 
+<%= link_to "New Mountain Range", "/mtn_ranges/new"  %>
+
+
 <h1>All Mountain Ranges</h1>
 <% @mtn_ranges.most_recent_first.each do |mtn_range| %>
   <h3><%=mtn_range.name%>
