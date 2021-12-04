@@ -29,4 +29,15 @@ RSpec.describe 'the parks show page' do
 
     expect(page).to have_content("Hike Count: 1")
   end
+
+  it 'has link to update park' do
+    # visit "/parks/#{park_1.id}"
+    expect(page).to have_link("Update #{@park_1.name}")
+  end
+
+  it 'routes to /parks/:id/edit' do
+    # visit "/parks/#{park_1.id}"
+    click_link("Update #{@park_1.name}")
+    expect(current_path).to eq("/parks/#{@park_1.id}/edit")
+  end
 end

@@ -10,3 +10,5 @@
 <p>Entrance Fee: <%= @park.entrance_fee%></p>
 <p>Ocean Access: <%= @park.ocean_access %></p>
 <p>Hike Count: <%= @park.hike_count %></p>
+
+<%= link_to "Update #{@park.name}", "/parks/#{@park.id}/edit" %>

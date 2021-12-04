@@ -29,9 +29,9 @@ RSpec.describe "parks index page", type: :feature do
     expect(page).to have_content(park_2.created_at)
   end
 
-  it 'can link to create new park' do
+  it 'has link to create new park' do
     visit '/parks'
-    expect(page).to have_content('New Park')
+    expect(page).to have_link('New Park')
   end
 
   it 'routes to /parks/new' do
