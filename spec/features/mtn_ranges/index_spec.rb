@@ -28,4 +28,15 @@ RSpec.describe "mtnrange index page", type: :feature do
     expect(page).to have_content(mtn_range_1.created_at)
     expect(page).to have_content(mtn_range_2.created_at)
   end
+
+  it 'can link to create new mtn_range' do
+    visit "/mtn_ranges/"
+    expect(page).to have_content('New Mountain Range')
+  end
+
+  it 'routes to /mtn_ranges/new' do
+    visit "/mtn_ranges/"
+    click_link('New Mountain Range')
+    expect(current_path).to eq("/mtn_ranges/new")
+  end
 end
