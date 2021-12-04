@@ -32,4 +32,13 @@ RSpec.describe 'the mtn_ranges show page' do
     expect(page).to have_content("Mountain Count: 2")
   end
 
+  it 'has a link to update a mtn_range' do
+    expect(page).to have_link("Update #{@mtn_range_1.name}")
+  end
+
+  it 'routes to /mtn_ranges/:id/edit' do
+    click_link("Update #{@mtn_range_1.name}")
+    expect(current_path).to eq("/mtn_ranges/#{@mtn_range_1.id}/edit")
+  end
+
 end

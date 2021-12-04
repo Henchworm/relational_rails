@@ -16,7 +16,7 @@ require 'rails_helper'
 RSpec.describe 'mtn_range new page' do
 
   #expect what the form looks like to have content
-  #is this living in the right place: we think so 
+  #is this living in the right place: we think so
   it "can create a new mtn_range" do
     visit '/mtn_ranges/new'
     expect(current_path).to eq('/mtn_ranges/new')
