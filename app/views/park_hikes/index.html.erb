@@ -13,4 +13,4 @@
   <p>Water on Route: <%= hike.water_on_route %></p>
 <% end %>
 
-<%= link_to 'Create Hike', "/parks/#{@park.id}/hikes/new" %>
+<%= link_to "Create Hike for #{@park.name}", "/parks/#{@park.id}/hikes/new" %>
