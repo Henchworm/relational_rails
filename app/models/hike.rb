@@ -3,6 +3,6 @@ class Hike < ApplicationRecord
 
   validates_presence_of :name
   validates_presence_of :mileage
+  validates :water_on_route, inclusion: [true, false]
   validates_presence_of :elevation_gain
-  validates_presence_of :water_on_route
 end
