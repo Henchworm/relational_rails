@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe "Hike Creation" do
   it 'links to the new page page from Park-Hikes Index' do
     park = Park.create!(name: "Rocky Mountain National Park", entrance_fee: 30, ocean_access: false)
-    visit "/parks/#{park.id}/hikes/new"
+    visit "/parks/#{park.id}/hikes"
 
-    click_link "Create #{hike.name}"
+    click_link "Create Hike for #{park.name}"
     expect(current_path).to eq("/parks/#{park.id}/hikes/new")
   end
 

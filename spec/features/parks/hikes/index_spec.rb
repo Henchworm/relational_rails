@@ -49,11 +49,11 @@ RSpec.describe 'Parks hikes index' do
   end
 
   it 'has link to creeate a new hike for that park' do
-    expect(page).to have_link('Create Hike')
+    expect(page).to have_link("Create Hike for #{@park_1.name}")
   end
 
   it 'routes to /parks/:park_id/hikes/new' do
-    click_link('Create Hike')
+    click_link "Create Hike for #{@park_1.name}"
     expect(current_path).to eq("/parks/#{@park_1.id}/hikes/new")
   end
 end
