@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch '/parks/:id', to: 'parks#update'
   get '/parks/:park_id/hikes', to: 'park_hikes#index'
   get '/parks/:park_id/hikes/new', to: 'park_hikes#new'
+  post '/parks/:park_id/hikes', to: 'park_hikes#create'
 
   get '/hikes', to: 'hikes#index'
   get '/hikes/:id', to: 'hikes#show'

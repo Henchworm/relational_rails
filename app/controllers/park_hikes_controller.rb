@@ -5,17 +5,14 @@ class ParkHikesController < ApplicationController
   end
 
   def new
+    @park = Park.find(params[:park_id])
   end
 
   def create
-    # park = Park.new({
-    #   name: params[:name],
-    #   entrance_fee: params[:entrance_fee],
-    #   ocean_access: params[:ocean_access]
-    #   })
-    hike = Park.new(hike_params)
-    park.save
-    redirect_to "/parks"
+    @park = Park.find(params[:park_id])
+    @hike = @park.hikes.create!(hike_params)
+    @hike.save
+    redirect_to "/parks/#{@park.id}/hikes"
   end
 
   private
