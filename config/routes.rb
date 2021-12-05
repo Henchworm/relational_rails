@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/parks/:id/edit', to: 'parks#edit'
   patch '/parks/:id', to: 'parks#update'
   get '/parks/:park_id/hikes', to: 'park_hikes#index'
+  get '/parks/:park_id/hikes/new', to: 'park_hikes#new'
 
   get '/hikes', to: 'hikes#index'
   get '/hikes/:id', to: 'hikes#show'
