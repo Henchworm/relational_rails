@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   get '/mountains/:id', to: 'mountains#show'
   get '/mountains/:id/edit', to: 'mountains#edit'
   patch '/mountains/:id', to: 'mountains#update'
+  delete '/mountains/:id', to: 'mountains#destroy'
+
 end

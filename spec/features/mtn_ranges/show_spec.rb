@@ -45,7 +45,6 @@ RSpec.describe 'the mtn_ranges show page' do
     expect(page).to_not have_content("#{@mtn_range_1.name}")
     expect(page).to_not have_content(@mountain_1.name)
     expect(page).to_not have_content(@mountain_2.name)
-
   end
 
 

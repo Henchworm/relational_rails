@@ -32,5 +32,21 @@ RSpec.describe "the mountain show page", type: :feature do
     expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
   end
 
-  
+  it 'displays a link to delete the mountain' do
+    expect(page).to have_link("Delete #{@mountain_1.name}")
+  end
+
+  it "routes from deleting to index" do
+    click_link("Delete #{@mountain_1.name}")
+    expect(current_path).to eq("/mountains")
+  end
+
+  it "does not display delete records" do
+    click_link("Delete #{@mountain_1.name}")
+    expect(page).to_not have_content(@mountain_1.name)
+  end
+
+
+
+
 end
