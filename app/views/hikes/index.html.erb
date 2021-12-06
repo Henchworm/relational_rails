@@ -7,7 +7,7 @@
 
 
 <h1>All Hikes</h1>
-<% @hikes.each do |hike| %>
+<% @hikes.true_only.each do |hike| %>
   <h3><%=hike.name%></h3>
   <p>Mileage: <%=hike.mileage%></p>
   <p>Elevation Gain: <%=hike.elevation_gain%></p>

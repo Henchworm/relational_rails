@@ -23,6 +23,16 @@ hike_2 = park_1.hikes.create!(name: "Moomaw Glacier",
                       elevation_gain: 4000,
                       water_on_route: true)
 
+hike_3 = park_1.hikes.create!(name: "Mt. Ypsilon",
+                      mileage: 9,
+                      elevation_gain: 4000,
+                      water_on_route: false)
+
+hike_4 = park_2.hikes.create!(name: "Cracker Lake",
+                      mileage: 12,
+                      elevation_gain: 1500,
+                      water_on_route: true)
+
 mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
                             natl_park_land: false,
                             drivetime: 16)
