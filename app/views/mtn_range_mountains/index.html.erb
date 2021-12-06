@@ -17,4 +17,11 @@
 
 <%= link_to "Create Mountain for #{@mtn_range.name}", "/mtn_ranges/#{@mtn_range.id}/mountains/new" %>
 
+<p>
+  <%= form_with url: "/mtn_ranges/#{@mtn_range.id}/mountains?", method: :get, local: true do |form| %>
+    <%= form.number_field :num %>
+    <%= form.submit 'Only return mountains with elevation greater than given number' %>
+    <% end %>
+</p>
+
 

@@ -44,7 +44,13 @@ mtn_range_2 = MtnRange.create!(name: "Rocky Mountains",
 mountain_1 = mtn_range_1.mountains.create!(name: "Black Kaweah",
                                          elevation: 13681,
                                          safe_winter_route: false)
-
+                                         
 mountain_2 = mtn_range_1.mountains.create!(name: "Red Kaweah",
-                                           elevation: 13720,
-                                           safe_winter_route: false)
+                                          elevation: 13720,
+                                          safe_winter_route: false)
+
+mountain_3 = mtn_range_1.mountains.create!(name: "Homer's Nose",
+                                           elevation: 10000,
+                                           safe_winter_route: true)
+
+

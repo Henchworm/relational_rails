@@ -13,4 +13,8 @@ class MtnRange < ApplicationRecord
     self.mountains.count
   end
 
+  def elevation_threshold(num)
+    self.mountains.where("elevation > #{num}")
+  end
+
 end
