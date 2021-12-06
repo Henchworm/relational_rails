@@ -21,4 +21,14 @@ RSpec.describe "the mountain show page", type: :feature do
   it "displays whether or not there is a safe winter route" do
     expect(page).to have_content(@mountain_1.safe_winter_route)
   end
+
+
+  it "displays link to update the mountain" do
+    expect(page).to have_link("Update #{@mountain_1.name}")
+  end
+
+  it 'has a link that routes to /mountains/:id/edit' do
+    click_link "Update #{@mountain_1.name}"
+    expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
+  end
 end

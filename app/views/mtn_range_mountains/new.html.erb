@@ -1,0 +1,12 @@
+<%= form_with url: "/mtn_ranges/#{@mtn_range.id}/mountains", method: :post, local: true do |form| %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+
+  <p><%= form.label :elevation%>
+  <%= form.text_field :elevation%></p>
+
+  <p><%= form.label :safe_winter_route %>
+  <%= form.text_field :safe_winter_route %></p>
+
+  <p><%=form.submit "Create Mountain"%></p>
+<% end %>
