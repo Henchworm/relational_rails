@@ -56,6 +56,17 @@ RSpec.describe 'Parks hikes index' do
     click_link "Create Hike for #{@park_1.name}"
     expect(current_path).to eq("/parks/#{@park_1.id}/hikes/new")
   end
+
+  it 'has link to sort hikes alphabetically' do
+    expect(page).to have_link("Sort Hikes Alphabetically")
+  end
+
+  it 'routes to /parks/:park_id/hikes' do
+  
+    click_link "Sort Hikes Alphabetically"
+    expect(current_path).to eq("/parks/#{@park_1.id}/hikes")
+    expect(@hike_2.name).to appear_before(@hike_1.name)
+  end
 end
 
 RSpec.describe 'Parks hikes index' do

@@ -1,7 +1,11 @@
 class ParkHikesController < ApplicationController
   def index
     @park = Park.find(params[:park_id])
-    @hikes = @park.hikes
+    if params[:sort]
+      @hikes = @park.hikes_by_name
+    else
+      @hikes = @park.hikes
+    end
   end
 
   def new

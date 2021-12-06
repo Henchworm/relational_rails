@@ -14,3 +14,8 @@
 <% end %>
 
 <%= link_to "Create Hike for #{@park.name}", "/parks/#{@park.id}/hikes/new" %>
+
+
+<p>
+  <%= link_to "Sort Hikes Alphabetically", "/parks/#{@park.id}/hikes?sort=true", method: :get%>
+</p>
