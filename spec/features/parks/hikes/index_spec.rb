@@ -77,6 +77,16 @@ RSpec.describe 'Parks hikes index' do
     click_link "Edit #{@hike_1.name}"
     expect(current_path).to eq("/hikes/#{@hike_1.id}/edit")
   end
+
+  it 'displays a submit button' do
+    expect(page).to have_button('Only return records with hike mileage greater than the given number')
+  end
+
+  it 'routes back to parks hikes index' do
+  end
+
+  it 'displays only hikes over the given threshold' do
+  end
 end
 
 RSpec.describe 'Parks hikes index' do

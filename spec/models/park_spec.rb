@@ -74,6 +74,30 @@ describe Park do
         expect(park_1.hikes_by_name).to eq([hike_2, hike_3, hike_1])
       end
     end
-  end
 
+    describe '#mileage_threshold' do
+      it 'returns hikes over a given number threshold' do
+        park_1 = Park.create!(name: "Rocky Mountain National Park",
+                              entrance_fee: 50,
+                              ocean_access: true)
+        park_2 = Park.create!(name: "Glacier National Park",
+                              entrance_fee: 50,
+                              ocean_access: true)
+        hike_1 = park_1.hikes.create!(name: "Sky Pond",
+                                      mileage: 12,
+                                      elevation_gain: 1600,
+                                      water_on_route: true)
+        hike_2 = park_1.hikes.create!(name: "Moomaw Glacier",
+                                      mileage: 20,
+                                      elevation_gain: 4000,
+                                      water_on_route: true)
+        hike_3 = park_1.hikes.create!(name: "Mt. Ypsilon",
+                                      mileage: 9,
+                                      elevation_gain: 4000,
+                                      water_on_route: false)
+
+        expect(park_1.mileage_threshold(15)).to eq([hike_2])
+    end
+  end
+end
 end
