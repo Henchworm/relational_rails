@@ -79,13 +79,21 @@ RSpec.describe 'Parks hikes index' do
   end
 
   it 'displays a submit button' do
-    expect(page).to have_button('Only return records with hike mileage greater than the given number')
+    expect(page).to have_button('Only return hikes with mileage greater than the given number')
   end
 
   it 'routes back to parks hikes index' do
+    fill_in :number, with: 15
+    click_button 'Only return hikes with mileage greater than the given number'
+    expect(current_path).to eq("/parks/#{@park_1.id}/hikes")
   end
 
-  it 'displays only hikes over the given threshold' do
+  it 'displays only hikes over the given mileage threshold' do
+    fill_in :number, with: 15
+    click_button 'Only return hikes with mileage greater than the given number'
+    expect(page).to have_content(@hike_2.name)
+    expect(page).to_not have_content(@hike_1.name)
+    expect(page).to_not have_content(@hike_3.name)
   end
 end
 

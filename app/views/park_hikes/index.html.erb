@@ -22,7 +22,7 @@
 
 <p>
 <%= form_with url: "/parks/#{@park.id}/hikes", method: :get, local: true do |form| %>
-  <%= form.number_field :num %>
-  <%= form.submit 'Only return records with hike mileage greater than the given number' %>
+  <%= form.number_field :number %>
+  <%= form.submit 'Only return hikes with mileage greater than the given number' %>
 <% end %>
 </p>

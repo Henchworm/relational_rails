@@ -3,6 +3,8 @@ class ParkHikesController < ApplicationController
     @park = Park.find(params[:park_id])
     if params[:sort]
       @hikes = @park.hikes_by_name
+    elsif params[:number]
+      @hikes = @park.mileage_threshold(params[:number])
     else
       @hikes = @park.hikes
     end
