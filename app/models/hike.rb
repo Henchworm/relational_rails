@@ -10,7 +10,4 @@ class Hike < ApplicationRecord
     Hike.where(water_on_route: "true")
   end
 
-  # def self.by_name
-  #   Hike.order(:name)
-  # end
 end

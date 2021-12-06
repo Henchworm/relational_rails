@@ -36,8 +36,18 @@ RSpec.describe 'hikes index page', type: :feature do
     expect(page).to have_content(@hike_2.elevation_gain)
   end
 
-  it 'displays whether or not there is water on the route for each hike' do 
+  it 'displays whether or not there is water on the route for each hike' do
     expect(page).to have_content(@hike_1.water_on_route)
     expect(page).to have_content(@hike_2.water_on_route)
+  end
+
+  it 'displays link to edit next to each hike' do
+    expect(page).to have_link("Edit Sky Pond")
+    expect(page).to have_link("Edit Moomaw Glacier")
+  end
+
+  it 'routes to /hikes/:id/edit' do
+    click_link "Edit #{@hike_2.name}"
+    expect(current_path).to eq("/hikes/#{@hike_2.id}/edit")
   end
 end

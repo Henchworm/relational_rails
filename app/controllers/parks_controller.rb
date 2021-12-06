@@ -11,11 +11,6 @@ class ParksController < ApplicationController
   end
 
   def create
-    # park = Park.new({
-    #   name: params[:name],
-    #   entrance_fee: params[:entrance_fee],
-    #   ocean_access: params[:ocean_access]
-    #   })
     park = Park.new(park_params)
     park.save
     redirect_to "/parks"

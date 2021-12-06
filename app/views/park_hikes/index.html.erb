@@ -7,7 +7,7 @@
 
 <h1>Hikes in <%=@park.name%></h1>
 <% @hikes.each do |hike| %>
-  <h3><%= hike.name %></h3>
+  <h3><%= hike.name %> <%=link_to "Edit #{hike.name}", "/hikes/#{hike.id}/edit" %></h3>
   <p>Mileage: <%= hike.mileage %></p>
   <p>Elevation Gain: <%= hike.elevation_gain %></p>
   <p>Water on Route: <%= hike.water_on_route %></p>

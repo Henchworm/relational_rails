@@ -62,10 +62,20 @@ RSpec.describe 'Parks hikes index' do
   end
 
   it 'routes to /parks/:park_id/hikes' do
-  
+
     click_link "Sort Hikes Alphabetically"
     expect(current_path).to eq("/parks/#{@park_1.id}/hikes")
     expect(@hike_2.name).to appear_before(@hike_1.name)
+  end
+
+  it 'has link to edit each hike listed for the park' do
+    expect(page).to have_link("Edit Sky Pond")
+    expect(page).to have_link("Edit Moomaw Glacier")
+  end
+
+  it 'routes to /hikes/:id/edit' do
+    click_link "Edit #{@hike_1.name}"
+    expect(current_path).to eq("/hikes/#{@hike_1.id}/edit")
   end
 end
 
