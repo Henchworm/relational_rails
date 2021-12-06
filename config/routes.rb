@@ -31,5 +31,6 @@ Rails.application.routes.draw do
 
   get '/mountains', to: 'mountains#index'
   get '/mountains/:id', to: 'mountains#show'
-
+  get '/mountains/:id/edit', to: 'mountains#edit'
+  patch '/mountains/:id', to: 'mountains#update'
 end
