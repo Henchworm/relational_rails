@@ -39,4 +39,28 @@ RSpec.describe "parks index page", type: :feature do
     click_link('New Park')
     expect(current_path).to eq('/parks/new')
   end
+
+  it 'has link to edit page for each park' do
+    park_1 = Park.create!(name: "Rocky Mountain National Park",
+                          entrance_fee: 50,
+                          ocean_access: true)
+    park_2 = Park.create!(name: "Glacier National Park",
+                          entrance_fee: 30,
+                          ocean_access: false)
+    visit '/parks'
+    expect(page).to have_link('Edit Rocky Mountain National Park')
+    expect(page).to have_link('Edit Glacier National Park')
+  end
+
+  it 'routes to /parks/:id/edit' do
+    park_1 = Park.create!(name: "Rocky Mountain National Park",
+                          entrance_fee: 50,
+                          ocean_access: true)
+    park_2 = Park.create!(name: "Glacier National Park",
+                          entrance_fee: 30,
+                          ocean_access: false)
+    visit '/parks'
+    click_link("Edit #{park_1.name}")
+    expect(current_path).to eq("/parks/#{park_1.id}/edit")
+  end
 end
