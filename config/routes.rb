@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/hikes/:id', to: 'hikes#show'
   get '/hikes/:id/edit', to: 'hikes#edit'
   patch '/hikes/:id', to: 'hikes#update'
+  delete '/hikes/:id', to: 'hikes#destroy'
 
   get '/mtn_ranges', to: 'mtn_ranges#index'
   get '/mtn_ranges/new', to: 'mtn_ranges#new'
