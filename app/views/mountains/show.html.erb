@@ -11,3 +11,4 @@
 <p>Safe Winter Route: <%= @mountain.safe_winter_route %></p>
 
 <%= link_to "Update #{@mountain.name}", "/mountains/#{@mountain.id}/edit" %>
+<p><%= link_to "Delete #{@mountain.name}", "/mountains/#{@mountain.id}", method: :delete%><p>

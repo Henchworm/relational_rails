@@ -31,4 +31,22 @@ RSpec.describe 'the mtn_ranges show page' do
     expect(page).to have_content("Mountain Count: 2")
   end
 
+  it 'displays a link to delete the mtn range' do
+    expect(page).to have_link("Delete #{@mtn_range_1.name}")
+  end
+
+  it "routes from deleting to index" do
+    click_link("Delete #{@mtn_range_1.name}")
+    expect(current_path).to eq("/mtn_ranges")
+  end
+
+  it "does not display delete records" do
+    click_link("Delete #{@mtn_range_1.name}")
+    expect(page).to_not have_content("#{@mtn_range_1.name}")
+    expect(page).to_not have_content(@mountain_1.name)
+    expect(page).to_not have_content(@mountain_2.name)
+  end
+
+
+
 end

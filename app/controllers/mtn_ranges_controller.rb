@@ -31,4 +31,10 @@ class MtnRangesController < ApplicationController
       }))
       redirect_to "/mtn_ranges/#{@mtn_range.id}"
   end
+
+  def destroy
+    @mtn_range = MtnRange.find(params[:id])
+    @mtn_range.destroy
+    redirect_to "/mtn_ranges"
+  end
 end
