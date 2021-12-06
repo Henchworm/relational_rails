@@ -17,6 +17,12 @@ class HikesController < ApplicationController
     redirect_to "/hikes/#{hike.id}"
   end
 
+  def destroy
+    hike = Hike.find(params[:id])
+    hike.destroy
+    redirect_to '/hikes'
+  end
+
   private
     def hike_params
       params.permit(:name, :mileage, :elevation_gain, :water_on_route)

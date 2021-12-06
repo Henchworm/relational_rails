@@ -38,4 +38,18 @@ RSpec.describe 'the hikes show page' do
     click_link "Update #{@hike_1.name}"
     expect(current_path).to eq("/hikes/#{@hike_1.id}/edit")
   end
+
+  it 'has a link to delete a hike' do
+    expect(page).to have_link("Delete #{@hike_1.name}")
+  end
+
+  it 'routes to /hikes' do
+    click_link("Delete #{@hike_1.name}")
+    expect(current_path).to eq("/hikes")
+  end
+
+  it 'does not display deleted record' do
+    click_link("Delete #{@hike_1.name}")
+    expect(page).to_not have_content(@hike_1.name)
+  end
 end
