@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/mtn_ranges/:mtn_range_id/mountains', to: 'mtn_range_mountains#index'
   get '/mtn_ranges/:mtn_range_id/mountains/new', to: 'mtn_range_mountains#new'
   post '/mtn_ranges/:mtn_range_id/mountains', to: 'mtn_range_mountains#create'
+  delete '/mtn_ranges/:id', to: 'mtn_ranges#destroy'
 
   get '/mountains', to: 'mountains#index'
   get '/mountains/:id', to: 'mountains#show'

@@ -1,5 +1,5 @@
 class MtnRange < ApplicationRecord
-  has_many :mountains
+  has_many :mountains, dependent: :destroy
 
   validates :natl_park_land, inclusion: [true, false]
   validates_presence_of :name

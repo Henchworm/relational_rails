@@ -31,4 +31,6 @@ RSpec.describe "the mountain show page", type: :feature do
     click_link "Update #{@mountain_1.name}"
     expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
   end
+
+  
 end
