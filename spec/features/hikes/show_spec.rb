@@ -26,7 +26,16 @@ RSpec.describe 'the hikes show page' do
     expect(page).to have_content(@hike_1.elevation_gain)
   end
 
-  it 'displays whether or not there is water on the route' do  
+  it 'displays whether or not there is water on the route' do
     expect(page).to have_content(@hike_1.water_on_route)
+  end
+
+  it 'displays link to update the hike' do
+    expect(page).to have_link("Update #{@hike_1.name}")
+  end
+
+  it 'has a link that routes to /hikes/:id/edit' do
+    click_link "Update #{@hike_1.name}"
+    expect(current_path).to eq("/hikes/#{@hike_1.id}/edit")
   end
 end
