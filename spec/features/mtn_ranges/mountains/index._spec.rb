@@ -12,6 +12,10 @@ RSpec.describe 'the MtnRangeMountainController index' do
                                                  elevation: 13720,
                                                  safe_winter_route: false)
 
+    @mountain_3 = @mtn_range_1.mountains.create!(name: "Homer's Nose",
+                                                elevation: 10000,
+                                                safe_winter_route: true)
+
     visit "/mtn_ranges/#{@mtn_range_1.id}/mountains"
   end
 
@@ -80,6 +84,18 @@ end
   it "displays whether or not there is a safe winter route" do
     expect(page).to have_content(@mountain_1.safe_winter_route)
     expect(page).to have_content(@mountain_2.safe_winter_route)
-    # save_and_open_page
   end
+
+  it "displays a button " do
+    expect(page).to have_button("Only return mountains with elevation greater than given number")
+  end
+
+  it "routes back to mtn_ranges mountains index" do
+    click_button("Only return mountains with elevation greater than given number")
+    expect(current_path).to eq("/mtn_ranges/#{@mtn_range_2.id}/mountains")
+  end
+
+  it "displays elevations over threshold 10000" do
+  end
+
 end

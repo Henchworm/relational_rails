@@ -30,4 +30,5 @@ RSpec.describe "the mountain index page", type: :feature do
         expect(page).to have_content(@mountain_1.safe_winter_route)
         expect(page).to have_content(@mountain_2.safe_winter_route)
       end
+
     end
