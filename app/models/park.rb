@@ -11,4 +11,8 @@ class Park < ApplicationRecord
   def hike_count
     self.hikes.count
   end
+
+  def hikes_by_name
+    self.hikes.order(:name)
+  end
 end
