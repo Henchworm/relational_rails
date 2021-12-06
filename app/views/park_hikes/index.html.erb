@@ -12,3 +12,5 @@
   <p>Elevation Gain: <%= hike.elevation_gain %></p>
   <p>Water on Route: <%= hike.water_on_route %></p>
 <% end %>
+
+<%= link_to "Create Hike for #{@park.name}", "/parks/#{@park.id}/hikes/new" %>

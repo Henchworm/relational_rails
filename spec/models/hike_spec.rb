@@ -9,6 +9,7 @@ describe Hike do
     it { should validate_presence_of :name}
     it { should validate_presence_of :mileage}
     it { should validate_presence_of :elevation_gain}
-    it { should validate_presence_of :water_on_route}
+    it { should allow_value(false).for (:water_on_route) }
+    it { should allow_value(true).for (:water_on_route) }
   end
 end

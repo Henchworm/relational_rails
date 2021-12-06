@@ -17,8 +17,7 @@ RSpec.describe "Park creation", type: :feature do
     fill_in('ocean_access', with: false)
 
     click_button('Create Park')
-
-    # new_park_id = Park.last.id
+    
     expect(current_path).to eq("/parks")
     expect(page).to have_content("Rocky Mountain National Park")
   end

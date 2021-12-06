@@ -47,6 +47,15 @@ RSpec.describe 'Parks hikes index' do
     expect(page).to have_content(@hike_1.water_on_route)
     expect(page).to have_content(@hike_2.water_on_route)
   end
+
+  it 'has link to creeate a new hike for that park' do
+    expect(page).to have_link("Create Hike for #{@park_1.name}")
+  end
+
+  it 'routes to /parks/:park_id/hikes/new' do
+    click_link "Create Hike for #{@park_1.name}"
+    expect(current_path).to eq("/parks/#{@park_1.id}/hikes/new")
+  end
 end
 
 RSpec.describe 'Parks hikes index' do
@@ -92,4 +101,5 @@ RSpec.describe 'Parks hikes index' do
   it 'displays whether or not there is water on the route for each hike' do
     expect(page).to have_content(@hike_3.water_on_route)
   end
+
 end
