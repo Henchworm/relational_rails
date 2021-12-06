@@ -36,6 +36,26 @@ RSpec.describe 'the MtnRangeMountainController index' do
     expect(page).to have_content(@mountain_2.safe_winter_route)
 
   end
+
+  it 'has link to create a new mountain for that mtn_range' do
+    expect(page).to have_link("Create Mountain for #{@mtn_range_1.name}")
+  end
+
+  it 'routes to /mtn_ranges/:mtn_range_id/mountains/new' do
+    click_link "Create Mountain for #{@mtn_range_1.name}"
+    expect(current_path).to eq("/mtn_ranges/#{@mtn_range_1.id}/mountains/new")
+  end
+
+  xit 'has link to sort hikes alphabetically' do
+    expect(page).to have_link("Sort Hikes Alphabetically")
+  end
+
+  xit 'routes to /parks/:park_id/hikes' do
+
+    click_link "Sort Hikes Alphabetically"
+    expect(current_path).to eq("/parks/#{@park_1.id}/hikes")
+    expect(@hike_2.name).to appear_before(@hike_1.name)
+  end
 end
 
   RSpec.describe 'the MtnRangeMountainController index' do
