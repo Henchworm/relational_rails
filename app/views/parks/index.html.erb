@@ -8,7 +8,9 @@
 <h1>All Parks</h1>
 <% @parks.most_recent_first.each do |park| %>
   <h3><%=park.name%>
-    <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=park.created_at%>)</span></h3>
+    <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=park.created_at%>)</span>
+    <%=link_to "Edit #{park.name}", "/parks/#{park.id}/edit"%>
+  </h3>
 <% end %>
 
 <%= link_to 'New Park', '/parks/new'%>
