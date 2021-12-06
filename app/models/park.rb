@@ -1,5 +1,5 @@
 class Park < ApplicationRecord
-  has_many :hikes
+  has_many :hikes, dependent: :destroy
   validates :ocean_access, inclusion: [true, false]
   validates_presence_of :name
   validates_presence_of :entrance_fee

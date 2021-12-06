@@ -12,3 +12,4 @@
 <p>Hike Count: <%= @park.hike_count %></p>
 
 <%= link_to "Update #{@park.name}", "/parks/#{@park.id}/edit" %>
+<p><%= link_to "Delete #{@park.name}", "/parks/#{@park.id}", method: :delete %></p>

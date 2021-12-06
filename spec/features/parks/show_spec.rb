@@ -40,4 +40,22 @@ RSpec.describe 'the parks show page' do
     click_link("Update #{@park_1.name}")
     expect(current_path).to eq("/parks/#{@park_1.id}/edit")
   end
+
+  it 'has a link to delete a park' do
+    expect(page).to have_link("Delete #{@park_1.name}")
+  end
+
+  it 'routes to /parks' do
+    click_link("Delete #{@park_1.name}")
+    expect(current_path).to eq("/parks")
+    expect(page).to_not have_content(@park_1.name)
+    expect(page).to_not have_content(@hike_1.name)
+  end
+
+  it 'does not display deleted record and associated info' do
+    click_link("Delete #{@park_1.name}")
+
+    expect(page).to_not have_content(@park_1.name)
+    expect(page).to_not have_content(@hike_1.name)
+  end
 end
