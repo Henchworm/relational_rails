@@ -10,3 +10,5 @@
 <p>Drivetime: <%= @mtn_range.drivetime%></p>
 <p>Natl Park Land: <%= @mtn_range.natl_park_land %></p>
 <p>Mountain Count: <%= @mtn_range.mountain_count %> </p>
+
+<%= link_to "Update #{@mtn_range.name}", "/mtn_ranges/#{@mtn_range.id}/edit" %>

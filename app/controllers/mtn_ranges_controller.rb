@@ -18,4 +18,17 @@ class MtnRangesController < ApplicationController
     @mtn_range.save
     redirect_to "/mtn_ranges/"
   end
+
+  def edit
+    @mtn_range = MtnRange.find(params[:id])
+  end
+
+  def update
+      @mtn_range = MtnRange.find(params[:id])
+      @mtn_range.update(({name: params[:name],
+                                 drivetime: params[:drivetime],
+                                 natl_park_land: params[:natl_park_land]
+      }))
+      redirect_to "/mtn_ranges/#{@mtn_range.id}"
+  end
 end
