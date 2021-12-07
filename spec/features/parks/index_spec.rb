@@ -63,4 +63,30 @@ RSpec.describe "parks index page", type: :feature do
     click_link("Edit #{park_1.name}")
     expect(current_path).to eq("/parks/#{park_1.id}/edit")
   end
+
+  it 'has link to delete each park' do
+    park_1 = Park.create!(name: "Rocky Mountain National Park",
+                          entrance_fee: 50,
+                          ocean_access: true)
+    park_2 = Park.create!(name: "Glacier National Park",
+                          entrance_fee: 30,
+                          ocean_access: false)
+    visit '/parks'
+    expect(page).to have_link('Delete Rocky Mountain National Park')
+    expect(page).to have_link('Delete Glacier National Park')
+  end
+
+  it 'can delete a park from the index page' do
+    park_1 = Park.create!(name: "Rocky Mountain National Park",
+                          entrance_fee: 50,
+                          ocean_access: true)
+    park_2 = Park.create!(name: "Glacier National Park",
+                          entrance_fee: 30,
+                          ocean_access: false)
+    visit '/parks'
+    click_link("Delete #{park_1.name}")
+    expect(current_path).to eq("/parks")
+    expect(page).to_not have_content(park_1.name)
+    expect(page).to have_content(park_2.name)
+  end
 end
