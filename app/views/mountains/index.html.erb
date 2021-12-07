@@ -6,7 +6,7 @@
 </ul>
 
 <h1>All Mountains</h1>
-<% @mountains.each do |mountain| %>
+<% @mountains.true_only.each do |mountain| %>
   <h3><%=mountain.name%>
     <%= link_to "Edit #{mountain.name}", "/mountains/#{mountain.id}/edit" %>
     <%= link_to "Delete #{mountain.name}", "/mountains/#{mountain.id}",method: :delete %>

@@ -7,10 +7,13 @@ RSpec.describe "the mountain index page", type: :feature do
                                     drivetime: 16)
       @mountain_1 = @mtn_range_1.mountains.create!(name: "Black Kaweah",
                                                  elevation: 13681,
-                                                 safe_winter_route: false)
+                                                 safe_winter_route: true)
       @mountain_2 = @mtn_range_1.mountains.create!(name: "Red Kaweah",
                                                    elevation: 13720,
-                                                   safe_winter_route: false)
+                                                   safe_winter_route: true)
+      @mountain_3 = @mtn_range_1.mountains.create!(name: "Kaweah Queen",
+                                                  elevation: 13720,
+                                                  safe_winter_route: false)
 
       visit "/mountains"
     end
@@ -29,6 +32,12 @@ RSpec.describe "the mountain index page", type: :feature do
       it "displays whether or not there is a safe winter route" do
         expect(page).to have_content(@mountain_1.safe_winter_route)
         expect(page).to have_content(@mountain_2.safe_winter_route)
+      end
+
+      it "only lists mountains where safe_winter_route is true" do
+        expect(page).to have_content(@mountain_1.name)
+        expect(page).to have_content(@mountain_2.name)
+        expect(page).to_not have_content(@mountain_3.name)
       end
 
       it 'show link to edit mountain' do
