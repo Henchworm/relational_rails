@@ -1,9 +1,9 @@
 <%= form_with url: "/mtn_ranges/#{@mtn_range.id}", method: :patch, local: true do |form| %>
   <p><%= form.label :name %>
-  <%= form.text_field :name %></p>
+  <%= form.text_field :name, value: @mtn_range.name %></p>
   <p><%= form.label :drivetime %>
-  <%= form.text_field :drivetime %></p>
+  <%= form.text_field :drivetime, value: @mtn_range.drivetime %></p>
   <%= form.label :natl_park_land %>
-  <%= form.text_field :natl_park_land %>
+  <%= form.text_field :natl_park_land, value: @mtn_range.natl_park_land %>
   <p><%=form.submit "Update Mountain Range"%></p>
  <% end %>
