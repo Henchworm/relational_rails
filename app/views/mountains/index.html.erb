@@ -7,8 +7,10 @@
 
 <h1>All Mountains</h1>
 <% @mountains.each do |mountain| %>
-  <p><%=mountain.name%></p>
+  <h3><%=mountain.name%>
+    <%= link_to "Edit #{mountain.name}", "/mountains/#{mountain.id}/edit" %>
+    <%= link_to "Delete #{mountain.name}", "/mountains/#{mountain.id}",method: :delete %>
+    </h3>
   <p>Elevation: <%=mountain.elevation%></p>
   <p>Safe Winter Route? <%=mountain.safe_winter_route%></p>
-  <p><%= link_to "Delete #{mountain.name}", "/mountains/#{mountain.id}",method: :delete %></p>
 <% end %>
