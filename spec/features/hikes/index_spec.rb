@@ -17,6 +17,11 @@ RSpec.describe 'hikes index page', type: :feature do
                           elevation_gain: 4000,
                           water_on_route: true)
 
+    @hike_3 = @park_1.hikes.create!(name: "Mt. Ypsilon",
+                          mileage: 9,
+                          elevation_gain: 4000,
+                          water_on_route: false)
+
     visit "/hikes"
   end
 
@@ -61,5 +66,11 @@ RSpec.describe 'hikes index page', type: :feature do
     expect(current_path).to eq("/hikes")
     expect(page).to_not have_content(@hike_1.name)
     expect(page).to have_content(@hike_2.name)
+  end
+
+  it 'only lists hikes where water_on_route is true' do
+    expect(page).to have_content(@hike_1.name)
+    expect(page).to have_content(@hike_2.name)
+    expect(page).to_not have_content(@hike_3.name)
   end
 end
