@@ -119,4 +119,15 @@ end
     expect(page).to have_content("#{@mountain_2.name}")
   end
 
+  it 'show link to edit mountain' do
+    expect(page).to have_link("Edit Longs Peak")
+    expect(page).to have_link("Edit Quandary Peak")
+    expect(page).to have_link("Edit Bald Peak")
+  end
+
+  it 'can route to mountain edit page' do
+    click_link("Edit Longs Peak")
+    expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
+  end
+
 end

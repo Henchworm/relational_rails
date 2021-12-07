@@ -5,10 +5,10 @@
   <li><a href="/parks">Parks</a></li>
 </ul>
 
-<h1><%= @mountain.name %></h1>
-
+<h3><%= @mountain.name %>
+  <%= link_to "Update #{@mountain.name}", "/mountains/#{@mountain.id}/edit" %>
+<%= link_to "Delete #{@mountain.name}", "/mountains/#{@mountain.id}", method: :delete%></h3>
 <p>Elevation: <%= @mountain.elevation%></p>
 <p>Safe Winter Route: <%= @mountain.safe_winter_route %></p>
 
-<%= link_to "Update #{@mountain.name}", "/mountains/#{@mountain.id}/edit" %>
-<p><%= link_to "Delete #{@mountain.name}", "/mountains/#{@mountain.id}", method: :delete%><p>
+
