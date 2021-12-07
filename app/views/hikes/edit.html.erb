@@ -1,15 +1,15 @@
 <%= form_with url: "/hikes/#{@hike.id}", method: :patch, local: true do |form| %>
   <p><%= form.label :name %>
-  <%= form.text_field :name %></p>
+  <%= form.text_field :name, value: @hike.name %></p>
 
   <p><%= form.label :mileage %>
-  <%= form.text_field :mileage %></p>
+  <%= form.text_field :mileage, value: @hike.mileage %></p>
 
   <p><%= form.label :elevation_gain %>
-  <%= form.text_field :elevation_gain %></p>
+  <%= form.text_field :elevation_gain, value: @hike.elevation_gain %></p>
 
   <p><%= form.label :water_on_route %>
-  <%= form.text_field :water_on_route %></p>
+  <%= form.text_field :water_on_route, value: @hike.water_on_route %></p>
 
   <p><%=form.submit "Update #{@hike.name}"%></p>
 <% end %>
