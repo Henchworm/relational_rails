@@ -6,12 +6,27 @@
 </ul>
 
 <h1>All Parks</h1>
-<% @parks.most_recent_first.each do |park| %>
-  <h3><%=park.name%>
-    <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=park.created_at%>)</span>
-    <%=link_to "Edit #{park.name}", "/parks/#{park.id}/edit"%>
-    <%=link_to "Delete #{park.name}", "/parks/#{park.id}", method: :delete%>
-  </h3>
+<% if params[:sort] %>
+  <% @parks.each do |park| %>
+    <h3><%=park.name%>
+      <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=park.created_at%>)</span>
+      <%=link_to "Edit #{park.name}", "/parks/#{park.id}/edit"%>
+      <%=link_to "Delete #{park.name}", "/parks/#{park.id}", method: :delete%>
+      Hike Count: <%= park.hike_count %>
+    </h3>
+  <% end %>
+
+<% else %>
+  <% @parks.most_recent_first.each do |park| %>
+    <h3><%=park.name%>
+      <span style = "font-size:16px; font-weight:normal;">  (Created at: <%=park.created_at%>)</span>
+      <%=link_to "Edit #{park.name}", "/parks/#{park.id}/edit"%>
+      <%=link_to "Delete #{park.name}", "/parks/#{park.id}", method: :delete%>
+    </h3>
+  <% end %>
 <% end %>
 
+
+
 <%= link_to 'New Park', '/parks/new'%>
+<p><%= link_to 'Sort Parks by the number of hikes', "/parks?sort=true", method: :get%></p>
