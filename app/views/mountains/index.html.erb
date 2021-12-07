@@ -10,4 +10,5 @@
   <p><%=mountain.name%></p>
   <p>Elevation: <%=mountain.elevation%></p>
   <p>Safe Winter Route? <%=mountain.safe_winter_route%></p>
+  <p><%= link_to "Delete #{mountain.name}", "/mountains/#{mountain.id}",method: :delete %></p>
 <% end %>
