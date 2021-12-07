@@ -40,6 +40,28 @@ RSpec.describe "mtnrange index page", type: :feature do
     expect(current_path).to eq("/mtn_ranges/new")
   end
 
+  it "shows link to edit mtn range" do
+    mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
+                          natl_park_land: true,
+                          drivetime: 16)
+
+    mtn_range_2 = MtnRange.create!(name: "Rocky Mountains",
+                          natl_park_land: false,
+                          drivetime: 16)
+    visit "/mtn_ranges/"
+    expect(page).to have_link("Edit Sierra Nevada")
+    expect(page).to have_link("Edit Rocky Mountains")
+  end
+
+  it "edit link routes to edit page" do
+    mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
+                          natl_park_land: true,
+                          drivetime: 16)
+    visit "/mtn_ranges/"
+    click_link("Edit Sierra Nevada")
+    expect(current_path).to eq("/mtn_ranges/#{mtn_range_1.id}/edit")
+  end
+
   it 'show link to delete mtn_range' do
     mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
                           natl_park_land: true,
