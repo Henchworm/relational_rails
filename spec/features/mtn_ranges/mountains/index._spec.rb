@@ -62,6 +62,9 @@ end
       @mountain_2 = @mtn_range_2.mountains.create!(name: "Quandary Peak",
                                                    elevation: 14271,
                                                    safe_winter_route: true)
+     @mountain_3 = @mtn_range_2.mountains.create!(name: "Bald Peak",
+                                                 elevation: 10000,
+                                                 safe_winter_route: true)
 
       visit "/mtn_ranges/#{@mtn_range_2.id}/mountains"
     end
@@ -91,11 +94,17 @@ end
   end
 
   it "routes back to mtn_ranges mountains index" do
+    fill_in :num, with: 13000
     click_button("Only return mountains with elevation greater than given number")
     expect(current_path).to eq("/mtn_ranges/#{@mtn_range_2.id}/mountains")
   end
 
   it "displays elevations over threshold 10000" do
+    fill_in :num, with: 13000
+    click_button("Only return mountains with elevation greater than given number")
+    expect(page).to have_content(@mountain_1.name)
+    expect(page).to have_content(@mountain_2.name)
+    expect(page).to_not have_content(@mountain_3.name)
   end
 
 end
