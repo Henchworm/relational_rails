@@ -62,7 +62,7 @@ end
       @mountain_2 = @mtn_range_2.mountains.create!(name: "Quandary Peak",
                                                    elevation: 14271,
                                                    safe_winter_route: true)
-     @mountain_3 = @mtn_range_2.mountains.create!(name: "Bald Peak",
+      @mountain_3 = @mtn_range_2.mountains.create!(name: "Bald Peak",
                                                  elevation: 10000,
                                                  safe_winter_route: true)
 
@@ -105,6 +105,18 @@ end
     expect(page).to have_content(@mountain_1.name)
     expect(page).to have_content(@mountain_2.name)
     expect(page).to_not have_content(@mountain_3.name)
+  end
+
+  it 'show link to delete each mountain for a mtn range' do
+    expect(page).to have_link("Delete Longs Peak")
+    expect(page).to have_link("Delete Bald Peak")
+  end
+
+  it 'can link to delete a mountain next to each mountain range' do
+    click_link("Delete Longs Peak")
+    expect(current_path).to eq("/mountains")
+    expect(page).to_not have_content("#{@mountain_1.name}")
+    expect(page).to have_content("#{@mountain_2.name}")
   end
 
 end

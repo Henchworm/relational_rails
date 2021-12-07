@@ -31,4 +31,16 @@ RSpec.describe "the mountain index page", type: :feature do
         expect(page).to have_content(@mountain_2.safe_winter_route)
       end
 
+      it 'show link to delete each mountain' do
+        expect(page).to have_link("Delete Black Kaweah")
+        expect(page).to have_link("Delete Red Kaweah")
+      end
+
+      it 'can link to delete a mountain range next to each mountain range' do
+        click_link("Delete Black Kaweah")
+        expect(current_path).to eq("/mountains")
+        expect(page).to_not have_content("#{@mountain_1.name}")
+        expect(page).to have_content("#{@mountain_2.name}")
+      end
+
     end
