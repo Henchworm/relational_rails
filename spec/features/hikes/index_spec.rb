@@ -50,4 +50,16 @@ RSpec.describe 'hikes index page', type: :feature do
     click_link "Edit #{@hike_2.name}"
     expect(current_path).to eq("/hikes/#{@hike_2.id}/edit")
   end
+
+  it 'has link to delete each hike' do
+    expect(page).to have_link('Delete Sky Pond')
+    expect(page).to have_link('Delete Moomaw Glacier')
+  end
+
+  it 'can delete a hike from the index page' do
+    click_link("Delete #{@hike_1.name}")
+    expect(current_path).to eq("/hikes")
+    expect(page).to_not have_content(@hike_1.name)
+    expect(page).to have_content(@hike_2.name)
+  end
 end

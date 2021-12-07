@@ -95,6 +95,18 @@ RSpec.describe 'Parks hikes index' do
     expect(page).to_not have_content(@hike_1.name)
     expect(page).to_not have_content(@hike_3.name)
   end
+
+  it 'has link to delete each hike for a park' do
+    expect(page).to have_link('Delete Sky Pond')
+    expect(page).to have_link('Delete Moomaw Glacier')
+  end
+
+  it 'can delete a hike from the park hikes index page' do
+    click_link("Delete #{@hike_1.name}")
+    expect(current_path).to eq("/hikes")
+    expect(page).to_not have_content(@hike_1.name)
+    expect(page).to have_content(@hike_2.name)
+  end
 end
 
 RSpec.describe 'Parks hikes index' do
