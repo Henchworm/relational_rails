@@ -1,7 +1,9 @@
 class MtnRangeMountainsController < ApplicationController
   def index
     @mtn_range = MtnRange.find(params[:mtn_range_id])
-    if params[:num]
+    if params[:sort]
+      @mountains = @mtn_range.mountains_by_name
+    elsif params[:num]
       @mountains = @mtn_range.elevation_threshold(params[:num])
     else
     @mountains = @mtn_range.mountains

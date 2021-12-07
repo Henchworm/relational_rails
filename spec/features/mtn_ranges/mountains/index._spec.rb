@@ -38,11 +38,14 @@ RSpec.describe 'the MtnRangeMountainController index' do
   it "displays whether or not there is a safe winter route" do
     expect(page).to have_content(@mountain_1.safe_winter_route)
     expect(page).to have_content(@mountain_2.safe_winter_route)
-
   end
 
   it 'has link to create a new mountain for that mtn_range' do
     expect(page).to have_link("Create Mountain for #{@mtn_range_1.name}")
+  end
+
+  it 'has link to sort mountains alphabetically' do
+    expect(page).to have_link("Sort Mountains Alphabetically")
   end
 
   it 'routes to /mtn_ranges/:mtn_range_id/mountains/new' do
