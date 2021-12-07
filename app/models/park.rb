@@ -15,4 +15,8 @@ class Park < ApplicationRecord
   def hikes_by_name
     self.hikes.order(:name)
   end
+
+  def mileage_threshold(number)
+    self.hikes.where("mileage > #{number}")
+  end
 end
