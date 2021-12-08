@@ -7,10 +7,10 @@
 ### How To Use:
 
 Use `Ruby version 2.7.2` and `Rails version 5.2.6`
-+Git clone this directory to your local machine.
-+CD into 'relational_rails'
-+Run `Bundle Install`
-+Run `rspec` to run the entire testing suite and see the SimpleCov coverage stats.
++ Git clone this directory to your local machine.
++ CD into 'relational_rails'
++ Run `Bundle Install`
++ Run `rspec` to run the entire testing suite and see the SimpleCov coverage stats.
 
 + To create the database:
 --> `rails db:create`
