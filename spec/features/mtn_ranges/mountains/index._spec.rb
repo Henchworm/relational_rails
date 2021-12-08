@@ -51,7 +51,7 @@ RSpec.describe 'the MtnRangeMountainController index' do
   it "sorts mountains alphabetically" do
 
     click_link("Sort Mountains Alphabetically")
-    save_and_open_page
+    
     expect(@mountain_1.name).to appear_before(@mountain_2.name)
     expect(@mountain_1.name).to appear_before(@mountain_3.name)
 
