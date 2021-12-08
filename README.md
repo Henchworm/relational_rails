@@ -2,6 +2,9 @@
 
 ## Relational-Rails
 
+### Our schema is based on a one-to-many relationship. A mountain range has many mountains, and a park has many hikes. A mountain belongs to a mountain range and a hike belongs to a park. 
+
+
 ![Screen Shot 2021-12-06 at 7 43 38 PM](https://user-images.githubusercontent.com/89213429/144956593-0fc0ea54-b942-487e-908b-97b8646ebe73.png)
 
 ### How To Use:
