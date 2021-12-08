@@ -8,5 +8,5 @@
   <p><%= form.label :safe_winter_route %>
   <%= form.text_field :safe_winter_route, value: @mountain.safe_winter_route %></p>
 
-  <p><%=form.submit "Update Mountain"%></p>
+  <p><%=form.submit "Update #{@mountain.name}"%></p>
 <% end %>
