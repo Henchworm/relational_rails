@@ -21,4 +21,10 @@ class MtnRange < ApplicationRecord
     self.mountains.where("elevation > #{num}")
   end
 
+  def self.by_count
+    MtnRange.all.sort_by do |mtnrange|
+      mtnrange.mountains.length
+    end.reverse
+  end
+
 end

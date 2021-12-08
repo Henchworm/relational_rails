@@ -29,6 +29,26 @@ describe MtnRange do
         expect(MtnRange.most_recent_first).to eq([mtn_range_2, mtn_range_1])
       end
     end
+    describe '::by_count' do
+      it 'returns the mtn_ranges by mountain count' do
+        mtn_range_1 = MtnRange.create!(name: "Sierra Nevada",
+                                      natl_park_land: false,
+                                      drivetime: 16)
+        mtn_range_2 = MtnRange.create!(name: "Rocky Mountains",
+                                      natl_park_land: false,
+                                      drivetime: 16)
+        mountain_1 = mtn_range_1.mountains.create!(name: "Black Kaweah",
+                                                    elevation: 13681,
+                                                    safe_winter_route: false)
+        mountain_2 = mtn_range_1.mountains.create!(name: "Red Kaweah",
+                                                      elevation: 13720,
+                                                      safe_winter_route: false)
+        mountain_3 = mtn_range_2.mountains.create!(name: "Longs Peak",
+                                                      elevation: 14720,
+                                                      safe_winter_route: false)
+        expect(MtnRange.by_count).to eq([mtn_range_1, mtn_range_2])
+      end
+    end
   end
 
   describe 'instance methods' do
@@ -64,7 +84,7 @@ describe MtnRange do
 
           expect(mtn_range_1.mountains_by_name).to eq([mountain_1, mountain_2])
         end
-      end 
+      end
 
       describe '#elevation_threshold' do
         it 'returns mountains over a given number threshold' do
