@@ -1,7 +1,11 @@
 class MtnRangesController < ApplicationController
   def index
-    @mtn_ranges = MtnRange.all
-  end
+    if params[:sort]
+      @mtn_ranges = MtnRange.all.by_count
+    else
+      @mtn_ranges = MtnRange.all
+    end
+  end 
 
   def show
     @mtn_range = MtnRange.find(params[:id])

@@ -48,6 +48,16 @@ RSpec.describe 'the MtnRangeMountainController index' do
     expect(page).to have_link("Sort Mountains Alphabetically")
   end
 
+  it "sorts mountains alphabetically" do
+
+    click_link("Sort Mountains Alphabetically")
+    
+    expect(@mountain_1.name).to appear_before(@mountain_2.name)
+    expect(@mountain_1.name).to appear_before(@mountain_3.name)
+
+  end
+
+
   it 'routes to /mtn_ranges/:mtn_range_id/mountains/new' do
     click_link "Create Mountain for #{@mtn_range_1.name}"
     expect(current_path).to eq("/mtn_ranges/#{@mtn_range_1.id}/mountains/new")
