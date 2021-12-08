@@ -1,6 +1,10 @@
 class ParksController < ApplicationController
   def index
-    @parks = Park.all
+    if params[:sort]
+      @parks = Park.all.by_count
+    else
+      @parks = Park.all
+  end
   end
 
   def show
