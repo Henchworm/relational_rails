@@ -7,13 +7,15 @@
 ### How To Use:
 
 Use `Ruby version 2.7.2` and `Rails version 5.2.6`
-Clone this directory
+Git clone this directory to your local machine.
+CD into 'relational_rails'
 Run `Bundle Install`
-Run `rspec` to run the entire testing suite and see SimpleCov stats
+Run `rspec` to run the entire testing suite and see the SimpleCov coverage stats.
 
 + To create the database:
 --> `rails db:create`
 --> `rails db:migrate`
 --> `rails db:seed`
 
-+ Navigate to `local_host3000` in your browser to view and interact with Rails application
++ Run 'rails s' in your terminal to start the server.
++ Navigate to `local_host3000` in your browser to view and interact with Rails application!
