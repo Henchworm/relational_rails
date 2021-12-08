@@ -17,5 +17,5 @@ Run `rspec` to run the entire testing suite and see the SimpleCov coverage stats
 --> `rails db:migrate`
 --> `rails db:seed`
 
-+ Run 'rails s' in your terminal to start the server.
++ Run `rails s` in your terminal to start the server.
 + Navigate to `local_host3000` in your browser to view and interact with Rails application!
